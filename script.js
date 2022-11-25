@@ -3,8 +3,13 @@ const cashGiven = document.querySelector("#cash-given");
 const checkButton = document.querySelector(".check-btn");
 const numOfNotes = document.querySelectorAll(".no-of-notes");
 const message = document.querySelector(".message");
+const nextButton = document.querySelector(".next-btn");
+const cashBody = document.querySelector(".cash-amt-body");
 
 const notesvAvailable = [2000, 500, 100, 20, 10, 5, 1];
+
+hideCashBody();
+nextButton.addEventListener("click", showCashBody);
 
 checkButton.addEventListener("click", function () {
   hideMessage();
@@ -35,4 +40,13 @@ function hideMessage() {
 function showMessage(msg) {
   message.style.display = "block";
   message.innerText = msg;
+}
+
+function hideCashBody() {
+  cashBody.style.visibility = "hidden";
+}
+
+function showCashBody() {
+  cashBody.style.visibility = "visible";
+  nextButton.style.display = "none";
 }
