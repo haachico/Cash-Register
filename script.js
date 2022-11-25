@@ -13,8 +13,8 @@ nextButton.addEventListener("click", showCashBody);
 
 checkButton.addEventListener("click", function () {
   hideMessage();
-  if (billAmount.value > 0) {
-    if (cashGiven.value >= billAmount.value) {
+  if (Number(billAmount.value) > 0) {
+    if (Number(cashGiven.value) >= Number(billAmount.value)) {
       const amountTobeReturned = cashGiven.value - billAmount.value;
       calcNotesTobeReturned(amountTobeReturned);
     } else {
