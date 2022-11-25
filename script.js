@@ -5,11 +5,18 @@ const numOfNotes = document.querySelectorAll(".no-of-notes");
 const message = document.querySelector(".message");
 const nextButton = document.querySelector(".next-btn");
 const cashBody = document.querySelector(".cash-amt-body");
+const billErrorMsg = document.querySelector(".bill-error-msg");
 
 const notesvAvailable = [2000, 500, 100, 20, 10, 5, 1];
 
 hideCashBody();
-nextButton.addEventListener("click", showCashBody);
+nextButton.addEventListener("click", function () {
+  if (billAmount.value === "") {
+    billErrorShowMsg(`Please enter the bill amount!`);
+  } else {
+    showCashBody();
+  }
+});
 
 checkButton.addEventListener("click", function () {
   hideMessage();
@@ -49,4 +56,9 @@ function hideCashBody() {
 function showCashBody() {
   cashBody.style.visibility = "visible";
   nextButton.style.display = "none";
+}
+
+function billErrorShowMsg(msg) {
+  billErrorMsg.style.display = "block";
+  billErrorMsg.innerText = msg;
 }
