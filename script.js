@@ -14,6 +14,7 @@ nextButton.addEventListener("click", function () {
   if (billAmount.value === "") {
     billErrorShowMsg(`Please enter the bill amount!`);
   } else {
+    billErrorHideMsg();
     showCashBody();
   }
 });
@@ -61,4 +62,8 @@ function showCashBody() {
 function billErrorShowMsg(msg) {
   billErrorMsg.style.display = "block";
   billErrorMsg.innerText = msg;
+}
+
+function billErrorHideMsg() {
+  billErrorMsg.style.display = "none";
 }
