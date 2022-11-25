@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+/*   
+  body {
+    font-family: "Rubik", sans-serif;
+    line-height: 1;
+    font-weight: 400;
+    color: #555;
+  } */
+
+.container {
+  color: #ecfeff;
+  width: 90rem;
+  margin: 10rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #164e63;
+  padding: 4rem 0;
+}
+
+.heading {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.heading-text {
+  font-size: 1.8rem;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+
+#bill-heading {
+  font-size: 2rem;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+#bill-amount {
+  padding: 2px 4px;
+  margin-bottom: 2rem;
+  height: 6rem;
+  width: 50rem;
+  font-size: 1.8rem;
+  border-radius: 5px;
+}
+
+#cash-heading {
+  font-size: 2rem;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+#cash-given {
+  padding: 2px 4px;
+  margin-bottom: 2rem;
+  height: 6rem;
+  width: 50rem;
+  font-size: 1.8rem;
+  border-radius: 5px;
+}
+
+.check-btn {
+  padding: 1rem 2rem;
+  margin-bottom: 3rem;
+  font-weight: 800;
+  font-size: 1.8rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #164e63;
+}
+
+.return-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+table {
+  font-size: 1.5rem;
+}
+
+.message {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+/* table, */
+th {
+  border: 1px solid;
+  padding: 3px 8px;
+  background-color: #22d3ee;
+  color: black;
+}
+td {
+  border: 1px solid;
+  padding: 3px 8px;
+  background-color: white;
+  color: black;
+}
