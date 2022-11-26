@@ -17,7 +17,7 @@ html {
 
 .container {
   color: #ecfeff;
-  width: 50%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@ html {
   padding: 2px 4px;
   margin-bottom: 2rem;
   height: 6rem;
-  width: 50rem;
+  width: 50%;
   font-size: 1.8rem;
   border-radius: 5px;
 }
@@ -63,7 +63,7 @@ html {
   padding: 2px 4px;
   margin-bottom: 2rem;
   height: 6rem;
-  width: 50rem;
+  width: 50%;
   font-size: 1.8rem;
   border-radius: 5px;
 }
