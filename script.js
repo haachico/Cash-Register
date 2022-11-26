@@ -21,15 +21,19 @@ nextButton.addEventListener("click", function () {
 
 checkButton.addEventListener("click", function () {
   hideMessage();
-  if (Number(billAmount.value) > 0) {
-    if (Number(cashGiven.value) >= Number(billAmount.value)) {
-      const amountTobeReturned = cashGiven.value - billAmount.value;
-      calcNotesTobeReturned(amountTobeReturned);
-    } else {
-      showMessage(`Cash is less than the bill amount!`);
-    }
+  if (cashGiven.value === "") {
+    showMessage(`Please enter the cash amount!`);
   } else {
-    showMessage(`Invalid Bill Amount`);
+    if (Number(billAmount.value) > 0) {
+      if (Number(cashGiven.value) >= Number(billAmount.value)) {
+        const amountTobeReturned = cashGiven.value - billAmount.value;
+        calcNotesTobeReturned(amountTobeReturned);
+      } else {
+        showMessage(`Cash is less than the bill amount!`);
+      }
+    } else {
+      showMessage(`Invalid Bill Amount`);
+    }
   }
 });
 
