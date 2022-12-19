@@ -6,34 +6,57 @@ const message = document.querySelector(".message");
 const nextButton = document.querySelector(".next-btn");
 const cashBody = document.querySelector(".cash-amt-body");
 const billErrorMsg = document.querySelector(".bill-error-msg");
-
+const displayChange = document.querySelector(".display-change");
 const notesvAvailable = [2000, 500, 100, 20, 10, 5, 1];
 
 hideCashBody();
 nextButton.addEventListener("click", function () {
-  if (billAmount.value === "") {
-    billErrorShowMsg(`Please enter the bill amount!`);
+  const inputBillAmt = Number(billAmount.value);
+
+  if (billAmount.value !== "") {
+    if (isNaN(inputBillAmt) === false) {
+      if (inputBillAmt < 0) {
+        billErrorShowMsg(`Please enter a positive bill amount!`);
+      } else {
+        billErrorHideMsg();
+        showCashBody();
+        changeDisplayHide();
+      }
+    } else {
+      billErrorShowMsg("Please enter a valid bill amount!");
+    }
   } else {
-    billErrorHideMsg();
-    showCashBody();
+    billErrorShowMsg(`Please enter the bill amount!`);
   }
 });
 
 checkButton.addEventListener("click", function () {
   hideMessage();
-  if (cashGiven.value === "") {
-    showMessage(`Please enter the cash amount!`);
-  } else {
-    if (Number(billAmount.value) > 0) {
-      if (Number(cashGiven.value) >= Number(billAmount.value)) {
-        const amountTobeReturned = cashGiven.value - billAmount.value;
-        calcNotesTobeReturned(amountTobeReturned);
+  const inputCashGiven = Number(cashGiven.value);
+  if (cashGiven.value !== "") {
+    if (isNaN(inputCashGiven) === false) {
+      if (inputCashGiven > 0) {
+        if (inputCashGiven >= Number(billAmount.value)) {
+          changeDisplayShow();
+          const amountTobeReturned = inputCashGiven - billAmount.value;
+          calcNotesTobeReturned(amountTobeReturned);
+        } else {
+          showMessage(`Cash is less than the bill amount!`);
+          changeDisplayHide();
+        }
       } else {
-        showMessage(`Cash is less than the bill amount!`);
+        showMessage(`Please enter a positive cash amount!`);
+        changeDisplayHide();
       }
     } else {
-      showMessage(`Invalid Bill Amount`);
+      showMessage(`Please enter a valid cash amount given!`);
+      changeDisplayHide();
     }
+    // showMessage(`Please enter the cash amount!`);
+  } else {
+    showMessage(`Please enter the cash given amount!`);
+    changeDisplayHide();
+    //
   }
 });
 
@@ -70,4 +93,12 @@ function billErrorShowMsg(msg) {
 
 function billErrorHideMsg() {
   billErrorMsg.style.display = "none";
+}
+
+function changeDisplayHide() {
+  displayChange.style.display = "none";
+}
+
+function changeDisplayShow() {
+  displayChange.style.display = "block";
 }
